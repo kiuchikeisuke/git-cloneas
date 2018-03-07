@@ -1,0 +1,23 @@
+#!/bin/bash
+if [ $# -ne 2 ]; then
+    echo 'git cloneas <SomeUser> <git-repo>'
+    echo 'you neet to add any user.name and user.email to git global config file.Like this,'
+    echo '[SomeUser]'
+    echo '   name = some-user-name'
+    echo '   email = some.user.mail@some.one'
+else
+    USER=$1
+    USER_NAME=$(git config --global ${USER}.name)
+    USER_EMAIL=$(git config --global ${USER}.email)
+    GIT_URL=$2
+    DIR=${GIT_URL##*/}
+    DIR=${DIR%.git}
+    git clone $2
+    (cd $DIR && git config --local user.name $USER_NAME && git config --local user.email $USER_EMAIL)
+    echo set local user.name $USER_NAME
+    echo set local user.email $USER_EMAIL
+fi
+
+
+
+
