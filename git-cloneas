@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ $# -ne 2 ]; then
     echo 'git cloneas <SomeUser> <git-repo>'
-    echo 'you neet to add any user.name and user.email to git global config file.Like this,'
+    echo 'you need to add any user.name and user.email to git global config file.Like this,'
     echo '[SomeUser]'
     echo '   name = some-user-name'
     echo '   email = some.user.mail@some.one'
